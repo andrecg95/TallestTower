@@ -6,26 +6,14 @@ public class Piece : MonoBehaviour
 {
     public event Action OnPlaced;
 
-    Transform _transform;
     Rigidbody2D _rigidbody2D;
     CompositeCollider2D _collider;
 
 
     void Awake()
     {
-        _transform = GetComponent<Transform>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _collider = GetComponent<CompositeCollider2D>();
-    }
-
-    public void Move(float x)
-    {
-        
-    }
-
-    public void Rotate()
-    {
-
     }
 
     void Place()
@@ -34,9 +22,10 @@ public class Piece : MonoBehaviour
         _collider.isTrigger = false;
 
         if (TryGetComponent(out PieceGravity pieceGravity))
-        {
             pieceGravity.enabled = false;
-        }
+
+        if (TryGetComponent(out PieceMovement pieceMovement))
+            pieceMovement.enabled = false;
 
         OnPlaced?.Invoke();
     }
