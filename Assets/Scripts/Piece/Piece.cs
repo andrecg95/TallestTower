@@ -32,6 +32,12 @@ public class Piece : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Place();
+        if(!collision.CompareTag("ScoreManager"))
+            Place();
+    }
+
+    public bool IsPlaced()
+    {
+        return _rigidbody2D.bodyType == RigidbodyType2D.Dynamic;
     }
 }
