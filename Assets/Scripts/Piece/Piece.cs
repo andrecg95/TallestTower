@@ -32,8 +32,7 @@ public class Piece : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(!collision.CompareTag("ScoreManager"))
-            Place();
+        Place();
     }
 
     public bool IsPlaced()
