@@ -24,6 +24,7 @@ public class PieceSpawner : MonoBehaviour
     {
         if (_currentPiece != null)
         {
+            _currentPiece.OnDestroyed += RemovePice;
             _currentPiece.OnPlaced -= Spawn;
             _placedPieces.Add(_currentPiece);
         }
@@ -37,5 +38,11 @@ public class PieceSpawner : MonoBehaviour
 
         if (_currentPiece.TryGetComponent(out PieceMovement piceMov))
             piceMov.SetGameInput(m_GameInput.GetComponent<IGameInput>());
+    }
+
+    void RemovePice(Piece piece)
+    {
+        _currentPiece.OnDestroyed -= RemovePice;
+        _placedPieces.Remove(piece);
     }
 }

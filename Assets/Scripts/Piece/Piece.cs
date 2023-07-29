@@ -5,6 +5,7 @@ using UnityEngine;
 public class Piece : MonoBehaviour
 {
     public event Action OnPlaced;
+    public event Action<Piece> OnDestroyed;
 
     Rigidbody2D _rigidbody2D;
     CompositeCollider2D _collider;
@@ -14,6 +15,11 @@ public class Piece : MonoBehaviour
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _collider = GetComponent<CompositeCollider2D>();
+    }
+
+    void OnDestroy()
+    {
+        OnDestroyed?.Invoke(this);
     }
 
     void Place()
