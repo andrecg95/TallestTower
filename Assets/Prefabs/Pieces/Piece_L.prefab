@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9151586641031593753}
   - component: {fileID: -77052359948553548}
   m_Layer: 0
-  m_Name: Piece_I
+  m_Name: Piece_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,54 +104,62 @@ CompositeCollider2D:
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths:
-  - m_Collider: {fileID: 6319979629864551519}
-    m_ColliderPaths:
-    - - X: 0
-        Y: 5000000
-      - X: -10000000
-        Y: 5000000
-      - X: -10000000
-        Y: -5000000
-      - X: 0
-        Y: -5000000
-  - m_Collider: {fileID: 1499920623015582491}
-    m_ColliderPaths:
-    - - X: 10000000
-        Y: 5000000
-      - X: 0
-        Y: 5000000
-      - X: 0
-        Y: -5000000
-      - X: 10000000
-        Y: -5000000
-  - m_Collider: {fileID: 1102920818296485148}
-    m_ColliderPaths:
-    - - X: 20000000
-        Y: 5000000
-      - X: 10000000
-        Y: 5000000
-      - X: 10000000
-        Y: -5000000
-      - X: 20000000
-        Y: -5000000
   - m_Collider: {fileID: 449744917042789420}
     m_ColliderPaths:
-    - - X: -10000000
-        Y: 5000000
-      - X: -20000000
-        Y: 5000000
-      - X: -20000000
-        Y: -5000000
-      - X: -10000000
-        Y: -5000000
+    - - X: -5100000
+        Y: -99999
+      - X: -14900000
+        Y: -99999
+      - X: -14900000
+        Y: -9900000
+      - X: -5100000
+        Y: -9900000
+  - m_Collider: {fileID: 6319979629864551519}
+    m_ColliderPaths:
+    - - X: 4900000
+        Y: -99999
+      - X: -4900000
+        Y: -99999
+      - X: -4900000
+        Y: -9900000
+      - X: 4900000
+        Y: -9900000
+  - m_Collider: {fileID: 1499920623015582491}
+    m_ColliderPaths:
+    - - X: 14900000
+        Y: -99999
+      - X: 5100000
+        Y: -99999
+      - X: 5100000
+        Y: -9900000
+      - X: 14900000
+        Y: -9900000
+  - m_Collider: {fileID: 1102920818296485148}
+    m_ColliderPaths:
+    - - X: 14900000
+        Y: 9900000
+      - X: 5100000
+        Y: 9900000
+      - X: 5100000
+        Y: 99999
+      - X: 14900000
+        Y: 99999
   m_CompositePaths:
     m_Paths:
-    - - {x: 1.9999708, y: -0.5}
-      - {x: 1.9999708, y: 0.5}
-      - {x: -2, y: 0.4999707}
-      - {x: -1.9999708, y: -0.5}
+    - - {x: 1.49, y: -0.9724264}
+      - {x: 1.49, y: 0.9724264}
+      - {x: 1.4724264, y: 0.99}
+      - {x: 0.5275736, y: 0.99}
+      - {x: 0.51, y: 0.9724264}
+      - {x: 0.51, y: 0.0075737}
+      - {x: 0.4924264, y: -0.0099999}
+      - {x: -1.4724264, y: -0.0099999}
+      - {x: -1.49, y: -0.0275735}
+      - {x: -1.49, y: -0.9724264}
+      - {x: -1.4724264, y: -0.99}
+      - {x: 1.4724264, y: -0.99}
   m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
+  m_OffsetDistance: 0.03
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 2590800563277633815}
 --- !u!114 &5499389674139044927
@@ -203,13 +211,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1605526929615006495, guid: db6d7c4f96e96d848ac85b7514bf65eb, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605526929615006495, guid: db6d7c4f96e96d848ac85b7514bf65eb, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5160143
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605526929615006495, guid: db6d7c4f96e96d848ac85b7514bf65eb, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8846330330447466297, guid: db6d7c4f96e96d848ac85b7514bf65eb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8846330330447466297, guid: db6d7c4f96e96d848ac85b7514bf65eb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8846330330447466297, guid: db6d7c4f96e96d848ac85b7514bf65eb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -270,13 +290,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1605526929615006495, guid: db6d7c4f96e96d848ac85b7514bf65eb, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605526929615006495, guid: db6d7c4f96e96d848ac85b7514bf65eb, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5160143
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605526929615006495, guid: db6d7c4f96e96d848ac85b7514bf65eb, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8846330330447466297, guid: db6d7c4f96e96d848ac85b7514bf65eb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8846330330447466297, guid: db6d7c4f96e96d848ac85b7514bf65eb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8846330330447466297, guid: db6d7c4f96e96d848ac85b7514bf65eb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -337,13 +369,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1605526929615006495, guid: db6d7c4f96e96d848ac85b7514bf65eb, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605526929615006495, guid: db6d7c4f96e96d848ac85b7514bf65eb, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5160143
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605526929615006495, guid: db6d7c4f96e96d848ac85b7514bf65eb, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8846330330447466297, guid: db6d7c4f96e96d848ac85b7514bf65eb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8846330330447466297, guid: db6d7c4f96e96d848ac85b7514bf65eb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8846330330447466297, guid: db6d7c4f96e96d848ac85b7514bf65eb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -404,13 +448,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block
       objectReference: {fileID: 0}
+    - target: {fileID: 1605526929615006495, guid: db6d7c4f96e96d848ac85b7514bf65eb, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605526929615006495, guid: db6d7c4f96e96d848ac85b7514bf65eb, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5160143
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605526929615006495, guid: db6d7c4f96e96d848ac85b7514bf65eb, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8846330330447466297, guid: db6d7c4f96e96d848ac85b7514bf65eb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.5
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8846330330447466297, guid: db6d7c4f96e96d848ac85b7514bf65eb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8846330330447466297, guid: db6d7c4f96e96d848ac85b7514bf65eb, type: 3}
       propertyPath: m_LocalPosition.z
