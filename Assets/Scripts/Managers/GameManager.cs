@@ -10,8 +10,11 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance => _instance;
 
     [SerializeField] string m_MenuScene, m_SinglePlayerScene, m_VsAiScene;
+    [SerializeField] GameConfigsData m_GameConfigs;
 
     List<PlayerManager> _players;
+
+    public GameConfigsData GameConfigs => m_GameConfigs;
 
 
     void Awake()

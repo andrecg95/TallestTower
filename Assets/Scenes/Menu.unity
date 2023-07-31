@@ -289,6 +289,7 @@ MonoBehaviour:
   m_MenuScene: Menu
   m_SinglePlayerScene: SinglePlayer
   m_VsAiScene: VsAI
+  m_GameConfigs: {fileID: 11400000, guid: b2bc5c58a4cddb046904485f6da24983, type: 2}
 --- !u!4 &340199663
 Transform:
   m_ObjectHideFlags: 0

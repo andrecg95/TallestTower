@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] EndMenuController m_EndMenu;
     [SerializeField] PlayerType m_PlayerType;
     [SerializeField] GameObject m_GameInput;
+    [SerializeField] GameObject m_Goal;
 
     float _score;
     int _lostPieces;
@@ -22,6 +23,8 @@ public class PlayerManager : MonoBehaviour
     {
         _placedPieces = new List<Piece>();
 
+        m_Goal.transform.position = GameManager.Instance.GameConfigs.WinningScore * Vector3.up;
+
         SpawnPiece();
     }
 
@@ -35,9 +38,9 @@ public class PlayerManager : MonoBehaviour
             _score = piece.transform.position.y + piece.GetComponent<Collider2D>().bounds.size.y / 2;
         }
 
-        if (_score >= 40)
+        if (_score >= GameManager.Instance.GameConfigs.WinningScore)
             PlayerWin();
-        else if (_lostPieces >= 4)
+        else if (_lostPieces >= GameManager.Instance.GameConfigs.LosingScore)
             PlayerLose();
     }
 

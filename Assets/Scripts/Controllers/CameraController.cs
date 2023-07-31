@@ -5,7 +5,6 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] PlayerManager m_PlayerManager;
     [SerializeField] float m_OffsetY;
-    [SerializeField] float m_MoveSpeed = 1f; 
 
     float _initPosY;
 
@@ -20,6 +19,6 @@ public class CameraController : MonoBehaviour
         float destPoint = Mathf.Max(_initPosY, m_PlayerManager.Score + m_OffsetY);
         float distance = destPoint - transform.position.y;
 
-        transform.Translate(distance * Time.deltaTime * m_MoveSpeed * Vector3.up);
+        transform.Translate(distance * Time.deltaTime * GameManager.Instance.GameConfigs.CameraMoveSpeed * Vector3.up);
     }
 }
