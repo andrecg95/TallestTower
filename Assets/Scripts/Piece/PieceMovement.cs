@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PieceMovement : MonoBehaviour
 {
+    [SerializeField] float m_MaxMoveDistance = 5f;
+
     IGameInput _gameInput;
 
 
@@ -17,6 +19,15 @@ public class PieceMovement : MonoBehaviour
 
     public void Move(int dir)
     {
+        if (dir == 0)
+            return;
+
+        float pieceDist = Mathf.Abs(transform.localPosition.x);
+        bool movingToBounds = transform.localPosition.x / pieceDist == dir;
+
+        if (pieceDist >= m_MaxMoveDistance && movingToBounds)
+            return;
+
         // the piece moves in steps of half the size of the cube, so the direction is multiplied by 0.5
         transform.Translate(dir * 0.5f * Vector3.right, Space.World);
     }

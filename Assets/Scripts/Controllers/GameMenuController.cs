@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PauseMenuController : MonoBehaviour
+public class GameMenuController : MonoBehaviour
 {
     public void Pause()
     {

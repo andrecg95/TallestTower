@@ -7,6 +7,6 @@ public class PieceGravity : MonoBehaviour
 
     void Update()
     {
-        transform.position += gravity * Time.deltaTime * Vector3.down;
+        transform.position += gravity * Time.deltaTime * Vector3.down * 3;
     }
 }

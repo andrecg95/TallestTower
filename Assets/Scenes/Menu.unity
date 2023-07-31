@@ -287,7 +287,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MenuScene: Menu
-  m_GameScene: Game
+  m_SinglePlayerScene: SinglePlayer
+  m_VsAiScene: VsAI
 --- !u!4 &340199663
 Transform:
   m_ObjectHideFlags: 0

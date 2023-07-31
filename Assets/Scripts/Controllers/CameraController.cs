@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] ScoreManager m_ScoreManager;
+    [SerializeField] PlayerManager m_PlayerManager;
     [SerializeField] float m_OffsetY;
     [SerializeField] float m_MoveSpeed = 1f; 
 
@@ -17,7 +17,7 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        float destPoint = Mathf.Max(_initPosY, m_ScoreManager.Score + m_OffsetY);
+        float destPoint = Mathf.Max(_initPosY, m_PlayerManager.Score + m_OffsetY);
         float distance = destPoint - transform.position.y;
 
         transform.Translate(distance * Time.deltaTime * m_MoveSpeed * Vector3.up);

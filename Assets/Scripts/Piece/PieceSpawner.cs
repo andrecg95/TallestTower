@@ -1,48 +1,21 @@
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class PieceSpawner : MonoBehaviour
 {
     [SerializeField] Piece[] m_PiecesPrefabs;
     [SerializeField] Transform m_PiecesContainer;
-    [SerializeField] GameObject m_GameInput;
     [SerializeField] int m_SpawnWidth = 5;
 
-    Piece _currentPiece;
-    List<Piece> _placedPieces;
-    public List<Piece> PlacedPieces => _placedPieces;
 
-
-    void Start()
+    public Piece Spawn()
     {
-        _placedPieces = new List<Piece>();
+        Piece rndPiece = m_PiecesPrefabs[UnityEngine.Random.Range(0, m_PiecesPrefabs.Length)];
+        Vector3 position = transform.position + Vector3.right * UnityEngine.Random.Range(-m_SpawnWidth, m_SpawnWidth+1);
+        Quaternion rotation = Quaternion.Euler(0, 0, 90 * UnityEngine.Random.Range(0, 4));
 
-        Spawn();
-    }
+        Piece newPiece = Instantiate(rndPiece, position, rotation, m_PiecesContainer);
 
-    void Spawn()
-    {
-        if (_currentPiece != null)
-        {
-            _currentPiece.OnDestroyed += RemovePice;
-            _currentPiece.OnPlaced -= Spawn;
-            _placedPieces.Add(_currentPiece);
-        }
-
-        Piece rndPiece = m_PiecesPrefabs[Random.Range(0, m_PiecesPrefabs.Length)];
-        Vector3 position = transform.position + Vector3.right * Random.Range(-m_SpawnWidth, m_SpawnWidth+1);
-        Quaternion rotation = Quaternion.Euler(0, 0, 90 * Random.Range(0, 4));
-
-        _currentPiece = Instantiate(rndPiece, position, rotation, m_PiecesContainer);
-        _currentPiece.OnPlaced += Spawn;
-
-        if (_currentPiece.TryGetComponent(out PieceMovement piceMov))
-            piceMov.SetGameInput(m_GameInput.GetComponent<IGameInput>());
-    }
-
-    void RemovePice(Piece piece)
-    {
-        _currentPiece.OnDestroyed -= RemovePice;
-        _placedPieces.Remove(piece);
+        return newPiece;
     }
 }

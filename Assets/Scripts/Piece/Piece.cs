@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Piece : MonoBehaviour
 {
-    public event Action OnPlaced;
+    public event Action<Piece> OnPlaced;
     public event Action<Piece> OnDestroyed;
 
     Rigidbody2D _rigidbody2D;
@@ -33,7 +33,7 @@ public class Piece : MonoBehaviour
         if (TryGetComponent(out PieceMovement pieceMovement))
             pieceMovement.enabled = false;
 
-        OnPlaced?.Invoke();
+        OnPlaced?.Invoke(this);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
