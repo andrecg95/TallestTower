@@ -23,7 +23,7 @@ public class PlayerManager : MonoBehaviour
     {
         _placedPieces = new List<Piece>();
 
-        m_Goal.transform.position = GameManager.Instance.GameConfigs.WinningScore * Vector3.up;
+        m_Goal.transform.position = new Vector3(m_Goal.transform.position.x, GameManager.Instance.GameConfigs.WinningScore, m_Goal.transform.position.z);
 
         SpawnPiece();
     }

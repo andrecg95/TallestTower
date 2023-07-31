@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 960c43c65e9a48f45b812883f8fa2e38, type: 3}
   m_Name: GameConfigs
   m_EditorClassIdentifier: 
-  WinningScore: 10
+  WinningScore: 40
   LosingScore: 5
-  PieceFallingSpeed: 10
+  PieceFallingSpeed: 5
   CameraMoveSpeed: 1
