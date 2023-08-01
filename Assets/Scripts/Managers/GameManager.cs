@@ -47,14 +47,14 @@ namespace TallestTower.Managers
 
         async void LoadGameSceneAsync(string scene)
         {
-            Time.timeScale = 1;
-
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
 
             while (!asyncLoad.isDone)
             {
                 await Task.Yield();
             }
+
+            Time.timeScale = 1;
 
             UpdatePlayers();
         }
