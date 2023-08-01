@@ -1,44 +1,48 @@
+using TallestTower.Inputs;
 using UnityEngine;
 
-public class PieceMovement : MonoBehaviour
+namespace TallestTower.Pieces
 {
-    [SerializeField] float m_MaxMoveDistance = 5f;
-
-    IGameInput _gameInput;
-
-
-    void Update()
+    public class PieceMovement : MonoBehaviour
     {
-        if (_gameInput == null)
-            return;
+        [SerializeField] float m_MaxMoveDistance = 5f;
 
-        Move(_gameInput.GetHorizontalDirection());
+        IGameInput _gameInput;
 
-        Rotate(_gameInput.GetRotationDirection());
-    }
 
-    public void Move(int dir)
-    {
-        if (dir == 0)
-            return;
+        void Update()
+        {
+            if (_gameInput == null)
+                return;
 
-        float pieceDist = Mathf.Abs(transform.localPosition.x);
-        bool movingToBounds = transform.localPosition.x / pieceDist == dir;
+            Move(_gameInput.GetHorizontalDirection());
 
-        if (pieceDist >= m_MaxMoveDistance && movingToBounds)
-            return;
+            Rotate(_gameInput.GetRotationDirection());
+        }
 
-        // the piece moves in steps of half the size of the cube, so the direction is multiplied by 0.5
-        transform.Translate(dir * 0.5f * Vector3.right, Space.World);
-    }
+        public void Move(int dir)
+        {
+            if (dir == 0)
+                return;
 
-    public void Rotate(int dir)
-    {
-        transform.Rotate(dir * 90 * Vector3.forward);
-    }
+            float pieceDist = Mathf.Abs(transform.localPosition.x);
+            bool movingToBounds = transform.localPosition.x / pieceDist == dir;
 
-    public void SetGameInput(IGameInput gameInput)
-    {
-        _gameInput = gameInput;
+            if (pieceDist >= m_MaxMoveDistance && movingToBounds)
+                return;
+
+            // the piece moves in steps of half the size of the cube, so the direction is multiplied by 0.5
+            transform.Translate(dir * 0.5f * Vector3.right, Space.World);
+        }
+
+        public void Rotate(int dir)
+        {
+            transform.Rotate(dir * 90 * Vector3.forward);
+        }
+
+        public void SetGameInput(IGameInput gameInput)
+        {
+            _gameInput = gameInput;
+        }
     }
 }

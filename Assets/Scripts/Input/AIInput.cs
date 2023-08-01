@@ -1,40 +1,43 @@
 using UnityEngine;
 
-public class AIInput : MonoBehaviour, IGameInput
+namespace TallestTower.Inputs
 {
-    [SerializeField] float m_PlayPeriod = 0.5f;
-
-    int _horizontalDir;
-    int _rotationDir;
-    float _lastTime;
-
-
-    void Start()
+    public class AIInput : MonoBehaviour, IGameInput
     {
-        _lastTime = Time.time - m_PlayPeriod;
-    }
+        [SerializeField] float m_PlayPeriod = 0.5f;
 
-    void Update()
-    {
-        _horizontalDir = 0;
-        _rotationDir = 0;
+        int _horizontalDir;
+        int _rotationDir;
+        float _lastTime;
 
-        if (Time.time - _lastTime >= m_PlayPeriod)
+
+        void Start()
         {
-            _horizontalDir = Random.Range(-1, 2);
-            _rotationDir = Random.Range(-1, 2);
-
-            _lastTime = Time.time;
+            _lastTime = Time.time - m_PlayPeriod;
         }
-    }
 
-    public int GetHorizontalDirection()
-    {
-        return _horizontalDir;
-    } 
+        void Update()
+        {
+            _horizontalDir = 0;
+            _rotationDir = 0;
 
-    public int GetRotationDirection()
-    {
-        return _rotationDir;
+            if (Time.time - _lastTime >= m_PlayPeriod)
+            {
+                _horizontalDir = Random.Range(-1, 2);
+                _rotationDir = Random.Range(-1, 2);
+
+                _lastTime = Time.time;
+            }
+        }
+
+        public int GetHorizontalDirection()
+        {
+            return _horizontalDir;
+        }
+
+        public int GetRotationDirection()
+        {
+            return _rotationDir;
+        }
     }
 }

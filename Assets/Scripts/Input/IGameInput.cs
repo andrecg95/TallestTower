@@ -1,7 +1,10 @@
 
-public interface IGameInput
+namespace TallestTower.Inputs
 {
-    int GetHorizontalDirection();
+    public interface IGameInput
+    {
+        int GetHorizontalDirection();
 
-    int GetRotationDirection();
+        int GetRotationDirection();
+    }
 }

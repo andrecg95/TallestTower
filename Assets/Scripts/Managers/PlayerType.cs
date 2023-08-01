@@ -1,6 +1,9 @@
 
-public enum PlayerType
+namespace TallestTower.Managers
 {
-    PLAYER,
-    AI
+    public enum PlayerType
+    {
+        PLAYER,
+        AI
+    }
 }

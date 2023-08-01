@@ -1,10 +1,14 @@
+using TallestTower.Managers;
 using UnityEngine;
 
-public class PieceGravity : MonoBehaviour
+namespace TallestTower.Pieces
 {
-
-    void Update()
+    public class PieceGravity : MonoBehaviour
     {
-        transform.position += GameManager.Instance.GameConfigs.PieceFallingSpeed * Time.deltaTime * Vector3.down;
+
+        void Update()
+        {
+            transform.position += GameManager.Instance.GameConfigs.PieceFallingSpeed * Time.deltaTime * Vector3.down;
+        }
     }
 }

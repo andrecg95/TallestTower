@@ -1,77 +1,80 @@
 using UnityEngine;
 
-public class PlayerInput : MonoBehaviour, IGameInput
+namespace TallestTower.Inputs
 {
-    Vector2 _touchStartPosition;
-    bool _isDrag;
-    int _dragThreshold;
-
-    int _horizontalDir;
-    int _rotationDir;
-
-    // The start calulates the threshold used to move the pieces based on the pixels occupied by a block
-    void Start()
+    public class PlayerInput : MonoBehaviour, IGameInput
     {
-        Camera camera = Camera.main;
+        Vector2 _touchStartPosition;
+        bool _isDrag;
+        int _dragThreshold;
 
-        var blockStart = camera.WorldToScreenPoint(Vector3.zero);
-        var blockEnd = camera.WorldToScreenPoint(Vector3.right);
+        int _horizontalDir;
+        int _rotationDir;
 
-        _dragThreshold = (int)Mathf.Abs(blockEnd.x - blockStart.x);
-    }
-
-    void Update()
-    {
-        _horizontalDir = 0;
-        _rotationDir = 0;
-
-        if (Input.touchCount > 0)
+        // The start calulates the threshold used to move the pieces based on the pixels occupied by a block
+        void Start()
         {
-            Touch touch = Input.GetTouch(0);
+            Camera camera = Camera.main;
 
-            switch (touch.phase)
-            {  
-                case TouchPhase.Began:
-                    _touchStartPosition = touch.position;
-                    _isDrag = false;
-                    break;
+            var blockStart = camera.WorldToScreenPoint(Vector3.zero);
+            var blockEnd = camera.WorldToScreenPoint(Vector3.right);
 
-                case TouchPhase.Moved:
-                    if (_isDrag)
-                        Drag(touch.position);
-                    else
-                        _isDrag = Mathf.Abs(touch.position.x - _touchStartPosition.x) > _dragThreshold;
-                    break;
+            _dragThreshold = (int)Mathf.Abs(blockEnd.x - blockStart.x);
+        }
 
-                case TouchPhase.Ended:
-                case TouchPhase.Canceled:
-                    if (!_isDrag)
-                        Tap();
-                    break;
+        void Update()
+        {
+            _horizontalDir = 0;
+            _rotationDir = 0;
+
+            if (Input.touchCount > 0)
+            {
+                Touch touch = Input.GetTouch(0);
+
+                switch (touch.phase)
+                {
+                    case TouchPhase.Began:
+                        _touchStartPosition = touch.position;
+                        _isDrag = false;
+                        break;
+
+                    case TouchPhase.Moved:
+                        if (_isDrag)
+                            Drag(touch.position);
+                        else
+                            _isDrag = Mathf.Abs(touch.position.x - _touchStartPosition.x) > _dragThreshold;
+                        break;
+
+                    case TouchPhase.Ended:
+                    case TouchPhase.Canceled:
+                        if (!_isDrag)
+                            Tap();
+                        break;
+                }
             }
         }
-    }
-    public int GetHorizontalDirection()
-    {
-        return _horizontalDir;
-    } 
-
-    public int GetRotationDirection()
-    {
-        return _rotationDir;
-    }
-
-    void Tap()
-    {
-        _rotationDir = 1;
-    }
-
-    void Drag(Vector2 touchPosition)
-    {
-        if (Mathf.Abs(touchPosition.x - _touchStartPosition.x) > _dragThreshold)
+        public int GetHorizontalDirection()
         {
-            _horizontalDir = touchPosition.x > _touchStartPosition.x ? 1 : -1;
-            _touchStartPosition = touchPosition;
+            return _horizontalDir;
+        }
+
+        public int GetRotationDirection()
+        {
+            return _rotationDir;
+        }
+
+        void Tap()
+        {
+            _rotationDir = 1;
+        }
+
+        void Drag(Vector2 touchPosition)
+        {
+            if (Mathf.Abs(touchPosition.x - _touchStartPosition.x) > _dragThreshold)
+            {
+                _horizontalDir = touchPosition.x > _touchStartPosition.x ? 1 : -1;
+                _touchStartPosition = touchPosition;
+            }
         }
     }
 }

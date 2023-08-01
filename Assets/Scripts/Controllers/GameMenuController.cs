@@ -1,30 +1,34 @@
+using TallestTower.Managers;
 using UnityEngine;
 
-public class GameMenuController : MonoBehaviour
+namespace TallestTower.Controllers
 {
-    public void Pause()
+    public class GameMenuController : MonoBehaviour
     {
-        GameManager.Instance.PauseGame(true);
+        public void Pause()
+        {
+            GameManager.Instance.PauseGame(true);
 
-        gameObject.SetActive(true);
-    }
+            gameObject.SetActive(true);
+        }
 
-    public void ResumeGame()
-    {
-        GameManager.Instance.PauseGame(false);
+        public void ResumeGame()
+        {
+            GameManager.Instance.PauseGame(false);
 
-        gameObject.SetActive(false);
-    }
+            gameObject.SetActive(false);
+        }
 
-    public void RestartGame()
-    {
-        GameManager.Instance.RestartGame();
+        public void RestartGame()
+        {
+            GameManager.Instance.RestartGame();
 
-        gameObject.SetActive(false);
-    }
+            gameObject.SetActive(false);
+        }
 
-    public void ExitToMenu()
-    {
-        GameManager.Instance.LoadMainMenu();
+        public void ExitToMenu()
+        {
+            GameManager.Instance.LoadMainMenu();
+        }
     }
 }

@@ -1,19 +1,23 @@
+using TallestTower.Managers;
 using UnityEngine;
 
-public class MainMenuController : MonoBehaviour
+namespace TallestTower.Controllers
 {
-    public void PlaySinglePlayer()
+    public class MainMenuController : MonoBehaviour
     {
-        GameManager.Instance.PlaySinglePlayer();
-    }
+        public void PlaySinglePlayer()
+        {
+            GameManager.Instance.PlaySinglePlayer();
+        }
 
-    public void PlayVsAi()
-    {
-        GameManager.Instance.PlayVsAi();
-    }
+        public void PlayVsAi()
+        {
+            GameManager.Instance.PlayVsAi();
+        }
 
-    public void Exit()
-    {
-        GameManager.Instance.Exit();
+        public void Exit()
+        {
+            GameManager.Instance.Exit();
+        }
     }
 }
