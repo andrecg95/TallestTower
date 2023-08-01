@@ -104,7 +104,8 @@ namespace TallestTower.Managers
 
         public void ActiveInput(bool active)
         {
-            m_GameInput.SetActive(active);
+            if(m_GameInput != null)
+                m_GameInput.SetActive(active);
         }
     }
 }
