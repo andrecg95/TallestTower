@@ -19,7 +19,7 @@ namespace TallestTower.Inputs
             var blockStart = camera.WorldToScreenPoint(Vector3.zero);
             var blockEnd = camera.WorldToScreenPoint(Vector3.right);
 
-            _dragThreshold = (int)Mathf.Abs(blockEnd.x - blockStart.x);
+            _dragThreshold = (int)Mathf.Abs((blockEnd.x - blockStart.x)/2);
         }
 
         void Update()
